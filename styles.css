@@ -1,0 +1,274 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --nav-bg: #1A0B2E;
+    --nav-border: #412567;
+    --gradient-yellow: #F7E93F;
+    --gradient-pink: #FB09B4;
+    --gradient-purple: #9100F8;
+    --white: #ffffff;
+    --text-muted: #c7bde2;
+}
+body {
+    background: #0f0524;
+    color: var(--white);
+    line-height: 1.6;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.navbar {
+    height: 92px;
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+}
+
+.logo span {
+    background: linear-gradient(
+        48deg,
+        var(--gradient-yellow),
+        var(--gradient-pink),
+        var(--gradient-purple)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: white;
+    opacity: 0.9;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.subscribe-btn {
+    height: 44px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10000px;
+    background: linear-gradient(
+        48deg,
+        var(--gradient-yellow),
+        var(--gradient-pink),
+        var(--gradient-purple)
+    );
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+:root {
+    --bg-dark: #1A0B2E;
+    --gradient-yellow: #F7E93F;
+    --gradient-pink: #FB09B4;
+    --gradient-purple: #9100F8;
+    --accent-green: #00FF88;
+}
+
+.hero {
+    padding: 140px 20px 100px;
+    text-align: center;
+    color: white;
+
+    background-image:
+        linear-gradient(
+            rgba(26, 11, 46, 0.85),
+            rgba(26, 11, 46, 0.85)
+        ),
+        url("assets/hero-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hero-mic {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 32px;
+
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--gradient-yellow),
+        var(--gradient-pink),
+        var(--gradient-purple)
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: micPulse 3s infinite ease-in-out;
+}
+.hero-mic img {
+    width: 56px;
+    height: 56px;
+    animation: micFloat 2.5s infinite ease-in-out;
+}
+
+.hero-mic::after {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--gradient-yellow),
+        var(--gradient-pink),
+        var(--gradient-purple)
+    );
+    opacity: 0.4;
+    filter: blur(30px);
+    z-index: -1;
+    animation: glowPulse 3s infinite ease-in-out;
+}
+.badge-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: var(--accent-green);
+    color: #0f172a;
+    font-size: 11px;
+    font-weight: 700;
+
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        48deg,
+        var(--gradient-yellow),
+        var(--gradient-pink),
+        var(--gradient-purple)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 560px;
+    margin: 0 auto;
+    opacity: 0.85;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    margin-top: 36px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    border: none;
+}
+
+.btn img {
+    width: 18px;
+    height: 18px;
+}
+.btn-primary {
+    background: linear-gradient(
+        48deg,
+        var(--gradient-yellow),
+        var(--gradient-pink),
+        var(--gradient-purple)
+    );
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent-green);
+    color: white;
+}
+@keyframes micPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}
+
+@keyframes micFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+}
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-mic {
+        width: 120px;
+        height: 120px;
+    }
+}
