@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +13,9 @@
     --gradient-purple: #9100F8;
     --white: #ffffff;
     --text-muted: #c7bde2;
+    --accent-green: #00FF88;
+    --bg-dark: #1A0B2E;
+    --card-bg: #1E1139;
 }
 body {
     background: #0f0524;
@@ -26,12 +28,16 @@ body {
     padding: 0 40px;
 }
 
+
 .navbar {
     height: 92px;
     background-color: var(--nav-bg);
     border-bottom: 1px solid var(--nav-border);
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-container {
@@ -41,6 +47,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 40px;
 }
 .logo {
     font-size: 26px;
@@ -69,6 +76,12 @@ body {
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    color: var(--accent-green);
 }
 
 .subscribe-btn {
@@ -89,38 +102,30 @@ body {
     color: white;
     font-size: 16px;
     font-weight: 600;
+    transition: transform 0.3s;
 }
 
-:root {
-    --bg-dark: #1A0B2E;
-    --gradient-yellow: #F7E93F;
-    --gradient-pink: #FB09B4;
-    --gradient-purple: #9100F8;
-    --accent-green: #00FF88;
+.subscribe-btn:hover {
+    transform: translateY(-2px);
 }
+
 
 .hero {
     padding: 140px 20px 100px;
     text-align: center;
     color: white;
-
-    background-image:
-        linear-gradient(
-            rgba(26, 11, 46, 0.85),
-            rgba(26, 11, 46, 0.85)
-        ),
-        url("assets/hero-bg.png");
-
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(26, 11, 46, 0.85), rgba(26, 11, 46, 0.85)), url('assets/hero-bg.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 }
+
 .hero-mic {
     position: relative;
     width: 150px;
     height: 150px;
     margin: 0 auto 32px;
-
     border-radius: 50%;
     background: linear-gradient(
         135deg,
@@ -128,13 +133,12 @@ body {
         var(--gradient-pink),
         var(--gradient-purple)
     );
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     animation: micPulse 3s infinite ease-in-out;
 }
+
 .hero-mic img {
     width: 56px;
     height: 56px;
@@ -157,16 +161,15 @@ body {
     z-index: -1;
     animation: glowPulse 3s infinite ease-in-out;
 }
+
 .badge-new {
     position: absolute;
     top: 10px;
     right: 10px;
-
     background: var(--accent-green);
     color: #0f172a;
     font-size: 11px;
     font-weight: 700;
-
     padding: 4px 10px;
     border-radius: 20px;
 }
@@ -207,20 +210,20 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-
     padding: 12px 22px;
     border-radius: 30px;
     font-size: 15px;
     font-weight: 600;
-
     cursor: pointer;
     border: none;
+    transition: all 0.3s;
 }
 
 .btn img {
     width: 18px;
     height: 18px;
 }
+
 .btn-primary {
     background: linear-gradient(
         48deg,
@@ -231,11 +234,23 @@ body {
     color: white;
 }
 
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(145, 0, 248, 0.3);
+}
+
 .btn-outline {
     background: transparent;
     border: 1px solid var(--accent-green);
     color: white;
 }
+
+.btn-outline:hover {
+    background: var(--accent-green);
+    color: #0f172a;
+    transform: translateY(-2px);
+}
+
 @keyframes micPulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.06); }
@@ -262,13 +277,246 @@ body {
         transform: scale(1);
     }
 }
-@media (max-width: 576px) {
-    .hero h1 {
-        font-size: 40px;
-    }
 
+.about {
+    background: linear-gradient(180deg, #1a0b2e, #140726);
+    padding: 120px 20px;
+    color: white;
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.about-desc {
+    max-width: 760px;
+    margin: 0 auto 24px;
+    font-size: 15px;
+    line-height: 1.8;
+    opacity: 0.85;
+}
+
+.about p:last-of-type {
+    max-width: 760px;
+    margin: 0 auto 80px;
+    font-size: 15px;
+    line-height: 1.8;
+    opacity: 0.85;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.stat-item h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent-green);
+    margin-bottom: 8px;
+}
+
+.stat-item p {
+    font-size: 13px;
+    letter-spacing: 1px;
+    opacity: 0.85;
+    text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .hero h1 {
+        font-size: 42px;
+    }
+    
     .hero-mic {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
+    }
+    
+    .hero-mic img {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .section-title {
+        font-size: 30px;
+    }
+    
+    .about p:last-of-type {
+        margin: 0 auto 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container,
+    .nav-container {
+        padding: 0 16px;
+    }
+    
+    .navbar {
+        height: 70px;
+    }
+    
+    .logo {
+        font-size: 22px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .subscribe-btn {
+        height: 40px;
+        padding: 0 14px;
+        font-size: 14px;
+    }
+    
+    .hero {
+        padding: 100px 16px 80px;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+    
+    .hero-mic {
+        width: 110px;
+        height: 110px;
+        margin: 0 auto 24px;
+    }
+    
+    .hero-mic img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 30px;
+    }
+    
+    .btn {
+        width: 250px;
+        justify-content: center;
+        padding: 14px 22px;
+    }
+    
+    .about {
+        padding: 80px 16px;
+    }
+    
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .about-desc,
+    .about p:last-of-type {
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0 auto 40px;
+        padding: 0 10px;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 60px;
+    }
+    
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .stat-item h3 {
+        font-size: 32px;
+    }
+    
+    .stat-item p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero-mic {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .hero-mic img {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .badge-new {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .stat-item h3 {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero h1 {
+        font-size: 48px;
+    }
+    
+    .hero p {
+        max-width: 500px;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+    
+    .nav-container {
+        padding: 0 30px;
     }
 }
