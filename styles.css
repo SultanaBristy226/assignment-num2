@@ -520,3 +520,140 @@ body {
         padding: 0 30px;
     }
 }
+
+.features {
+    background: #230e3d;
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.features-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    margin-bottom: 60px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 380px 30px 790px;
+    grid-template-rows: 280px 30px 225px 30px 273px;
+}
+
+.feature-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+.feature-item:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.feature-item:nth-child(3) {
+    grid-column: 3;
+    grid-row: 3;
+}
+.feature-item:nth-child(4) {
+    grid-column: 3;
+    grid-row: 5;
+}
+
+.feature-item:nth-child(5) {
+    grid-column: 1;
+    grid-row: 5;
+}
+.feature-item {
+    background: rgba(53, 17, 101, 0.4);
+    border-radius: 40px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(
+        135deg,
+        var(--gradient-yellow),
+        var(--gradient-pink),
+        var(--gradient-purple)
+    );
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon img {
+    width: 36px;
+    height: 36px;
+    filter: brightness(0) invert(1);
+}
+
+.feature-item h3 {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.feature-item p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+}
+@media (max-width: 1300px) {
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    .feature-item {
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        padding: 80px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 36px;
+    }
+
+    .feature-item {
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .feature-icon img {
+        width: 30px;
+        height: 30px;
+    }
+}
